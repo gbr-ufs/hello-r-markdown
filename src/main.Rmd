@@ -1,0 +1,151 @@
+---
+author: Gabriel Santos de Souza
+bibliography: bibliography.bib
+csl: associacao-brasileira-de-normas-tecnicas.csl
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+linkcolor: blue
+output:
+  pdf_document:
+    number_sections: true
+    toc: true
+  html_notebook:
+    number_sections: true
+    toc: true
+pagetitle: Trying out R Markdown
+title: |
+  <center>
+  ![](img/logo_ufs.png){ width=20% }
+
+  Trying out R Markdown
+---
+
+# Introduction
+
+This is a R markdown file. We can write in Markdown and export to different formats whilst writing R and running it.
+
+For each R function, you can run `?function` to get a manual page.
+
+# Arithmetic
+
+```{r}
+2 + 2
+```
+
+```{r}
+(1 + 2) * 3
+```
+
+```{r}
+5 ^ 2
+```
+
+# Variables
+
+```{r}
+x = 1
+2 -> y ## Handles left and right-hand assignment.
+4 > x + y
+```
+
+# Vectors
+
+```{r}
+x = c(1, 2, 3, 4) ## c for "Combine".
+y = (5:8) ## 5, 6, 7, 8.
+z = c(9:11, 20) ## 9, 10, 11, 20.
+x + y + z
+```
+
+```{r}
+x = c(10, 2, 41, 55)
+```
+
+```{r}
+sum(x)
+```
+
+```{r}
+length(x)
+```
+
+```{r}
+mean(x) ## Average.
+```
+
+```{r}
+max(x)
+```
+
+```{r}
+min(x)
+```
+
+```{r}
+median(x)
+```
+
+```{r}
+sort(x) # Ascending.
+```
+
+```{r}
+rev(sort(x)) # Descending.
+```
+
+```{r}
+summary(x)
+```
+
+```{r}
+diff(x)
+```
+
+```{r}
+## Default for label names is the variable name for x, and "Index" for y.
+## There's no title ("main") by default.
+plot(x, xlab="Numbers", ylab="Position of the Number", main="Numbers and their positions")
+```
+
+```{r}
+hist(x) ## Histogram.
+```
+
+# Dataframes
+
+R has some generic dataframes we can play around with.
+
+```{r}
+summary(beaver1)
+```
+
+This one has body temperature measures from a beaver.
+
+We can get a specific column by using `$`:
+
+```{r}
+beaver1$temp
+```
+
+We can easily add columns with assignment. Using assignment, all the values of our new column are set to the passed value:
+
+```{r}
+beaver1$legs = 4
+head(beaver1, n = 5) ## Shows the first five entries.
+```
+
+We can perform arithmetic on dataframes. With this, we can create a fahrenheit column for `beaver1`, for example:
+
+```{r}
+beaver1$fahrenheit = (beaver1$temp * 9 / 5) + 32
+head(beaver1, n = 5)
+```
+
+# Citations
+
+You can do citations [@stallmanFreeSoftwareFree2015].
+
+# References
+
+<div id="refs"></div>
+
+# Appendix {-}
